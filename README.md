@@ -24,6 +24,26 @@
  - [ ] 3
      - [ ] a) 
         - [ ] πως υπολογιζω το TTL? (διαφανειες)
-        - [ ] τι ειναι τα "Buckets" του ιστογραμματος? (μαλλον εννοει ποσα παραλληλογραμμα υπαρχουν) (διαφανειες maybe?), για το ευρος μαλλον απλως θελει κανονικοποιηση
-    - [ ] 
+        - [ ] τι ειναι τα "Buckets" του ιστογραμματος? (μαλλον εννοει ποσα παραλληλογραμμα υπαρχουν) (διαφανειες maybe?), για το ευρος μαλλον απλως θελει κανονικοποιηση              (δυναμικα)
+    - [ ] b) don't know (ισως διαφανειες?) BUT doesn't really matter - lets leave this for last
+    - [ ] c) pass real data to it and "παραμετροποιηση"
+-[ ] 4 (should be easy - lets leave this for second to last)
+    - [ ] map api -> copy paste απο διαφανειες τσεκαρισμενο μπαινουν τα markers
+    - [ ] lines with fatness proportional to amount of requests from spefic IP (meh..)
     
+Report
+- [ ] write the thing
+    
+DB - we'll do this like @ 20:00 tommorow
+- [ ] create admin (1 insert)
+- [ ] create users 
+- [ ] upload a few hars for each user
+- [ ] test for any obvious bugs
+
+Upload to eclass
+- export DB
+- convert report to pdf
+- Decide if we are gonna include the idiot in the submission
+
+gg wp
+10/10 would play again
