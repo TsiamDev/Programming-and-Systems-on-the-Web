@@ -1,26 +1,43 @@
 <?php
 
-require_once 'config/db.php';
+	require_once 'config/db.php';
 
-$sqlQuery1 = "SELECT COUNT(cache_private) FROM files ";
-$sqlQuery2 = "SELECT COUNT(cache_public) FROM files ";
-$sqlQuery3 = "SELECT COUNT(cache_no_cache) FROM files ";
-$sqlQuery4 = "SELECT COUNT(cache_no_store) FROM files ";
+	//Query - duh!
+	$sql = "SELECT COUNT(cache_private), COUNT(cache_public), COUNT(cache_no_cache), COUNT(cache_no_store) FROM files ";
 
-$sum = $sqlQuery1 + $sqlQuery2 + $sqlQuery3 +$sqlQuery4 
-$public = $sqlQuery2/$sum;
-$private = $sqlQuery1/$sum;
-$no_cache = $sqlQuery3/$sum;
-$no_store = $sqlQuery4/$sum;
+	$stmt = $conn->prepare($sql);
+	$stmt->execute();
+	// "out variables"
+	$stmt->bind_result($private, $public, $no_cache, $no_store);
 
-mysqli_close($conn);
+	// fetch returns:
+	// TRUE -> on success
+	// FALSE -> on error
+	// NULL -> no rows/data or truncation happened
+	if ( $stmt->fetch() != TRUE )
+	{
+		die("error while fetching data");
+	}
+	
+	//If you got here, data was fetched
+	//so, use it
+	
+	//Compute sum & percentages
+	$sum = $public + $private + $no_cache + $no_store;
+	$public = ($public / $sum) * 100;
+	$private = ($private / $sum) * 100;
+	$no_cache = ($no_cache / $sum) * 100;
+	$no_store = ($no_store / $sum) * 100;
+
+	//terminate connection!
+	mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 <title>Headers Analysis</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css"></script>
+	<script src="..\front_end\dependencies\Chartjs\Chartjs.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
@@ -37,7 +54,7 @@ mysqli_close($conn);
             datasets: [{
                 label: 'Cachability Directives',
                 backgroundColor: ['#49e2ff','##ff7d49','#3dd12a','#c9d12a'],
-                data: [<?$public, $private, $no_store, $no_cache?>]
+                data: [<?php echo $public ?>, <?php echo $private ?>, <?php echo $no_store ?>, <?php echo $no_cache ?>]
             }]
         },
         options: {
