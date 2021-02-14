@@ -69,7 +69,7 @@
     			Διαχείρηση Λογαριασμού
   				</button>
   				<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-  							<button class="dropdown-item" type="button"><a href="controllers/ui_for_admin_1.php">Στατιστικά</button>
+  							<button class="dropdown-item" type="button"><a href="user_statistics.php">Στατιστικά</button>
     					    <button class="dropdown-item" type="button"><a href="manage.php">Αλλαγή password</a></button>
     						<button class="dropdown-item" type="button"><a href="manage2.php">Αλλαγή username</a></button>
     						<div class="dropdown-divider"></div>
