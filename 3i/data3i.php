@@ -2,7 +2,7 @@
 
 require_once 'config/db.php';
 
-$sqlQuery = "SELECT content_type, max_age FROM files ";
+$sqlQuery = "SELECT content_type, max_age, expires FROM files ";
 
 $result = mysqli_query($conn,$sqlQuery);
 
