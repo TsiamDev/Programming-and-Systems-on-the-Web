@@ -23,9 +23,9 @@
     - [ ] a bit of work here - too tired to right it all down right now, it's faster if i just do it :P
  - [ ] 3
      - [ ] a) 
-        - [ ] πως υπολογιζω το TTL? (διαφανειες)
-        - [ ] τι ειναι τα "Buckets" του ιστογραμματος? (μαλλον εννοει ποσα παραλληλογραμμα υπαρχουν) (διαφανειες maybe?), για το ευρος μαλλον απλως θελει κανονικοποιηση              (δυναμικα)
-    - [ ] b) don't know (ισως διαφανειες?) BUT doesn't really matter - lets leave this for last
+        - [X ] πως υπολογιζω το TTL? (διαφανειες)
+        - [ X] τι ειναι τα "Buckets" του ιστογραμματος? (μαλλον εννοει ποσα παραλληλογραμμα υπαρχουν) (διαφανειες maybe?), για το ευρος μαλλον απλως θελει κανονικοποιηση              (δυναμικα)
+    - [X ] b) don't know (ισως διαφανειες?) BUT doesn't really matter - lets leave this for last
     - [ ] c) pass real data to it and "παραμετροποιηση"
 -[ ] 4 (should be easy - lets leave this for second to last)
     - [ ] map api -> copy paste απο διαφανειες τσεκαρισμενο μπαινουν τα markers
