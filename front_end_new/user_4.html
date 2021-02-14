@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>user_4</title>
+	<meta charset="utf-8"/>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Lodash - for deep copies of objects -->
+	<script src="..\front_end\dependencies\Lodash\lodash.js"></script>
+	<!-- leaflet - for heatmap-->
+	<script src="..\front_end\dependencies\leaflet\leaflet.js"></script>
+	<script src="..\front_end\dependencies\Leaflet.heat-gh-pages\dist\leaflet-heat.js"></script>
+	<!-- css files -->
+	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" /> -->
+	<link rel="stylesheet" href="u4_style.css">
+</head>
+<body>
+	<div id="map"></div>
+</body>
+
+<script>
+	//prepare receptacle
+	var points = [];
+	
+	//query server db
+	$(document).ready(function () {
+		get_data();
+	});
+
+	//this only exists because I believe it is more readable
+	//than an anonymous function - I place the declaration 
+	//here for "even more readability!"
+	function get_data()
+	{
+		$.ajax({
+			url: "u4_server.php",
+			type: 'GET',
+			dataType: 'json',
+			success: get_points
+		});
+	}
+
+	//************************ Helper Functions ************************
+	//if server successfully returned data this will
+	//get called. Then, the data is simply inserted
+	//in the "prepared receptacle" (script-"global" object <points>)
+	function get_points(data)
+	{
+		console.log("get_points");
+		/*
+		var addressPoints = [
+			[-37.8210922667, 175.2209316333, "2"],
+			[-37.8210819833, 175.2213903167, "3"],
+			[-37.8210881833, 175.2215004833, "3A"],
+			[-37.8211946833, 175.2213655333, "1"],
+			[-37.8209458667, 175.2214051333, "5"],
+			[-37.8208292333, 175.2214374833, "7"],
+			[-37.8325816, 175.2238798667, "537"],
+			[-37.8315855167, 175.2279767, "454"],
+			[-37.8096336833, 175.2223743833, "176"],
+			[-37.80970685, 175.2221815833, "178"],
+			[-37.8102146667, 175.2211562833, "190"]
+		];
+		*/
+		//console.log("data length " + data.length);
+		//console.log("data: ");
+		//console.log(data);
+		
+		//placeholder to make things easier
+		obj = { content_type: null,
+				serverIP: null
+			  };
+			  
+		for (var i = 0; i < data.length; i++) {
+		
+			obj.content_type = data[i].content_type;
+			obj.serverIP = data[i].serverIP;
+			
+			//shalow copies -> reference the original object
+			//deep copies -> new object!
+			//create a deep copy of the object using Lodash
+			var deepCopy = _.cloneDeep(obj);
+			points.push(deepCopy);
+
+			console.log(points[i]);
+		}
+		//console.log("i " + i);
+		console.log("points: ");
+		console.log(points);
+		check_points();
+	}
+	
+	function check_points()
+	{
+	console.log("pl : " + points.length);
+		//did the points get here successfully?
+		if ( points != null )
+		{
+			//query ipstack for geolocation data
+			//for every serverIP
+			
+			//constructs and displays heatmap
+			draw_heatmap(points);
+		}else
+		{
+			console.log("points is NULL!");
+		}
+	}
+	
+	//queries ipstack - I do this client side in an atempt 
+	//to reduce the server load (distributed approach)
+	//the aquired 
+	function getIPs()
+	{
+		
+	}
+	
+	//code based on example from: https://github.com/Leaflet/Leaflet.heat
+	function draw_heatmap(addressPoints)
+	{
+		var map = L.map('map').setView([-37.82109, 175.2193], 16);
+
+		//attribution left as-is
+		var tiles = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+		}).addTo(map);
+
+		addressPoints = addressPoints.map(function (p) { return [p[0], p[1]]; });
+
+		var heat = L.heatLayer(addressPoints, {radius: 75}).addTo(map),
+			draw = true;
+	/*
+		map.on({
+			movestart: function () { draw = false; },
+			moveend:   function () { draw = true; },
+			mousemove: function (e) {
+				if (draw) {
+					heat.addLatLng(e.latlng);
+				}
+			}
+		})
+	*/
+	}
+</script>

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora');
+
+body{
+	background-image: url("har.png");
+}
+
+.form-div{
+	background-color: lightgrey;
+	margin: 60px auto 50px;
+	padding: 25px 15px 10px 15px;
+	border: 1px solid #80ced7;
+	border-radius: 5px;
+	font-size: 1.1em;
+	font-family: 'Lora', serif;
+}
+
+.form-control:focus {
+	box-shadow: none;
+}
+
+form p{
+	font-size: .89em;
+}
+
+.form-div.login{
+	margin-top: 100px;
+}
+
+.logout {
+	color: red;
+}
+
+.dropdown{
+	position: relative;
+	margin: -535px 500px 1px 1100px;
+	padding: 8px;
+}
