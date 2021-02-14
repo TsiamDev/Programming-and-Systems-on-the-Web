@@ -12,13 +12,13 @@
 	}
 	
 	//get file count for this user
-	//$file_count = get_file_count($conn);
-	//echo 'file' . "\r\n";
-	//var_dump($file_count);
+	$file_count = get_file_count($conn);
+	echo 'file' . "\r\n";
+	var_dump($file_count);
 	
 	//get the last upload date for this user
-	//$last_date = get_last_upload_date($conn);
-	//var_dump($last_date['upload_date']);
+	$last_date = get_last_upload_date($conn);
+	var_dump($last_date['upload_date']);
 
 	/****************** Helper functions ************************/
 	
