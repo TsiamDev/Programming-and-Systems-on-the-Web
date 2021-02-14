@@ -28,7 +28,15 @@
 
                     for (var i in data) {
                         content_type.push(data[i].content_type);
-                        time.push(data[i].max_age);
+			if(typeof max_age !== 'undefined'){
+                            time.push(data[i].max_age);
+                        }
+                        else if(typeof expires !== 'undefined'){
+                            time.push(data[i].expires);
+                        }
+                        else{
+                            time = 0;
+			}
                     }
 
                     var chartdata = {
@@ -40,7 +48,7 @@
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',
                                 hoverBorderColor: '#666666',
-                                data: marks
+                                data: time
                             }
                         ]
                     };
