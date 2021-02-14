@@ -6,7 +6,7 @@
 Χρήστης
  - [x] 1
  - [ ] 2
-    - [ ] actually upload the file on upload click (ez)
+    - [x] actually upload the file on upload click (ez)
     - [ ] actually save locally on save click (json) (propably ez?)
  - [ ] 3
     - [ ] show basic statistics (2 select queries & need to also attach timestamp to file @ upload)
@@ -43,7 +43,6 @@ DB - we'll do this like @ 20:00 tommorow
 Upload to eclass
 - export DB
 - convert report to pdf
-- Decide if we are gonna include the idiot in the submission
 
 gg wp
 10/10 would play again
