@@ -7,7 +7,7 @@
  - [x] 1
  - [ ] 2
     - [x] actually upload the file on upload click (ez)
-    - [ ] actually save locally on save click (json) (propably ez?)
+    - [ ] actually save locally on save click (json) (propably ez? EDIT: harder than I expected)
  - [ ] 3
     - [ ] show basic statistics (2 select queries & need to also attach timestamp to file @ upload)
  - [ ] 4
