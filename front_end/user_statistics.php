@@ -1,19 +1,4 @@
-<?php 
-require_once 'controllers/control.php';
-
-//epanafora kodikou
-if (isset($_GET['password-token'])){
-	$passwordToken = $_GET['password-token'];
-	resetPassword($passwordToken);
-}
-
-if(!isset($_SESSION['id'])){
-	header('location: login.php');
-	exit();
-}
-
- ?>
-
+<?php require  'controllers/ui_for_user.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,14 +6,14 @@ if(!isset($_SESSION['id'])){
 	<!--Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
 
-	<link rel="stylesheet" href="mystyle.css">
+	<link rel="stylesheet" href="statistics.css">
 	<link rel="stylesheet" href="sidebar.css">
 	<script src="ll.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 
-	<title>Homepage</title>
+	<title>Στατιστικά</title>
 	
 </head>
 <body>
@@ -46,15 +31,20 @@ if(!isset($_SESSION['id'])){
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 offset-md-4 form-div login">
+				<h3>Βασικά στατιστικά χρήσης</h3>
 
-				<div class="alert <?php echo $_SESSION['alert-class']; ?>">
-					<?php echo $_SESSION['message']; ?>
-					<!--unset( $_SESSION['message']); -->
-				</div>
+				<table style='width:150%'>
+				<tr>
+					<th>Ημερoμηνία τελευταίου Upload</th>
+					<th>Πλήθος εγγραφών</th>
+				</tr>
+				<tr>
+					<th><?php echo $last_date?></th>
+					<th><?php echo $file_count?></th>
+				</tr>
+				</table>
 
-				<h3>Καλώς ήρθες, <?php echo $_SESSION['username']; ?></h3>
 
-				<!--<a href="index.php?logout=1" class="logout">Αποσύνδεση</a> -->
 
 				
 				
@@ -67,7 +57,7 @@ if(!isset($_SESSION['id'])){
     			Διαχείρηση Λογαριασμού
   				</button>
   				<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-  							<button class="dropdown-item" type="button"><a href="controllers/check_user_clearence_level.php">Στατιστικά</button>
+  							<button class="dropdown-item" type="button"><a href="user_statistics.html">Στατιστικά</button>
     					    <button class="dropdown-item" type="button"><a href="manage.php">Αλλαγή password</button>
     						<button class="dropdown-item" type="button"><a href="manage2.php">Αλλαγή username</button>
     						<div class="dropdown-divider"></div>

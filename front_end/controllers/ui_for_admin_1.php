@@ -10,10 +10,23 @@ require $path;
 //Data is ready - all that remains is to form
 //tables and serve to client
 
+// a)
 //$user_count = get_user_count($conn);
+
+// b)
+//$methods[<method>] -> <count>
 //$methods = get_method_count($conn);
+
+// c)
+//$statuses[<status>] -> <count>
 //$statuses = get_statuses($conn);
+
+// d)
+// $num_of_unique_domains -> count(<domains>)
 //$num_of_unique_domains = get_unique_domains($conn);
+
+// f)
+// $avg_ages_by_cont_type[<content_type>] -> avg(<content_type>)
 //$avg_ages_by_cont_type = get_avg_age_by_cnt_type($conn);
 
 
@@ -149,6 +162,6 @@ function get_avg_age_by_cnt_type(&$conn)
 
 <body>
 	<div>
-		<h2>90% done</h2>
+		<h2>Admin satistics</h2>
 	</div>
 </body>

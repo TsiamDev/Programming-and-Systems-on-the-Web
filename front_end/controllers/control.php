@@ -35,16 +35,16 @@ if(isset($_POST['signup-btn'])){
     $errors['password'] = "Ο κωδικός πρέπει να αποτελείται από τουλάχιστον 8 χαρακτήρες.";
 	}
 	if (!preg_match("/\d/", $password)) {
-    $errors['password'] = "Password should contain at least one digit";
+    $errors['password'] = "Ο κωδικός πρέπει να αποτελείται από τουλάχιστον 8 χαρακτήρες.";
 	}
 	if (!preg_match("/[A-Z]/", $password)) {
-    $errors['password'] = "Password should contain at least one Capital Letter";
+    $errors['password'] = "Ο κωδικός πρέπει να αποτελείται από τουλάχιστον 1 κεφαλαίο γράμμα.";
 	}
 	if (!preg_match("/\W/", $password)) {
-    $errors['password'] = "Password should contain at least one special character";
+    $errors['password'] = "Ο κωδικός πρέπει να αποτελείται από τουλάχιστον 1 ειδικό χαρακτήρα.";
 	}
 	if (preg_match("/\s/", $password)) {
-    $errors['password'] = "Password should not contain any white space";
+    $errors['password'] = "Ο κωδικός δεν πρέπει να περιέχει whitespace.";
 	}
 
 	if ($password !== $passwordConf){

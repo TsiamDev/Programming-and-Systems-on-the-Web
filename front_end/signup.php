@@ -39,12 +39,12 @@
 					<div class="form-group">
 						<label for="password">Κωδικός Πρόσβασης</label>
 						<input type="password" name="password" class="form-control form-control-lg">
-						<small id="passwordHelp" class="form-text text-muted">Το password πρέπει
+						<small id="passwordHelp" class="form-text text-muted">Ο κωδικός πρέπει
 							να είναι τουλάχιστον 8 χαρακτήρες και να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα, ένα αριθμό
 							και κάποιο σύμβολο (π.χ. #$*&@).</small>
 					</div>
 					<div class="form-group">
-						<label for="passwordConf">Επιβαιβέωση Κωδικού Πρόσβασης</label>
+						<label for="passwordConf">Επιβεβαίωση Κωδικού Πρόσβασης</label>
 						<input type="password" name="passwordConf" class="form-control form-control-lg">
 					</div>
 					<div class="form-group">
