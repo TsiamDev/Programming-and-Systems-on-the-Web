@@ -25,31 +25,26 @@
                     console.log(data);
                     var content_type = [];
                     var time = [];
-		    //var content_type10 = [];
+                    //var content_type10 = [];
                     //var time10 = [];
 
                     for (var i in data) {
                         content_type.push(data[i].content_type);
-			if(typeof data[i].max_age !== 'undefined'){
+                        if (typeof data[i].max_age !== 'undefined'){
                             time.push(data[i].max_age);
                         }
-                        else if(typeof data[i].expires !== 'undefined'){
-                            time.push(data[i].expires);
+                        else if ( typeof data[i].expires !== 'undefined'){
+                            var variance = (data[i].expires - data[i].last_modified);
+                            time.push(variance);
                         }
                         else{
-                            time = 0;
-			}
-			    
-			
-                        /*if (time > 0){
-                            time10.push(time);
-                            content_type10.push(content_type);
+                            time.push(0);
                         }
-                        */
+
                     }
 
                     var chartdata = {
-                        labels: content_type,
+                        labels: content_type[0],content_type[1],content_type[2],content_type[3],content_type[4],content_type[5],content_type[6],content_type[7],content_type[8],content_type[9]
                         datasets: [
                             {
                                 label: 'Content Type',
@@ -75,3 +70,6 @@
 
 </body>
 </html>
+
+
+
