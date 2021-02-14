@@ -67,7 +67,7 @@ if(!isset($_SESSION['id'])){
     			Διαχείρηση Λογαριασμού
   				</button>
   				<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-  							<button class="dropdown-item" type="button"><a href="controllers/check_user_clearence_level.php">Στατιστικά</button>
+  							<button class="dropdown-item" type="button"><a href="user_statistics.php">Στατιστικά</button>
     					    <button class="dropdown-item" type="button"><a href="manage.php">Αλλαγή password</button>
     						<button class="dropdown-item" type="button"><a href="manage2.php">Αλλαγή username</button>
     						<div class="dropdown-divider"></div>
