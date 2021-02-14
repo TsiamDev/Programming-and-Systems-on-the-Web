@@ -28,10 +28,10 @@
 
                     for (var i in data) {
                         content_type.push(data[i].content_type);
-			if(typeof max_age !== 'undefined'){
+			if(typeof data[i].max_age !== 'undefined'){
                             time.push(data[i].max_age);
                         }
-                        else if(typeof expires !== 'undefined'){
+                        else if(typeof data[i].expires !== 'undefined'){
                             time.push(data[i].expires);
                         }
                         else{
