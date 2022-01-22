@@ -43,6 +43,3 @@ DB - we'll do this like @ 20:00 tommorow
 Upload to eclass
 - export DB
 - convert report to pdf
-
-gg wp
-10/10 would play again
